@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.algorand:algosdk:1.13.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.algorand/algosdk/1.13.0/e71ba2dbc03c3c2d8ab68d933ab2513d857fd115/algosdk-1.13.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.algorand/algosdk/1.13.0/d02a55db1d9244f3a02122fd5002b660c0ba1538/algosdk-1.13.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.algorand/algosdk/1.13.0/eb796d62ab8117ff205c650700b2198b4e30cb68/algosdk-1.13.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
