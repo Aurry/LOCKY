@@ -383,8 +383,8 @@ public class CollectFragment extends Fragment implements ServiceConnection, Seri
                             String receiver = signInAccount.getEmail();
                             String AlgoNote = "Receiver:" + receiver + "," +
                                     "\nLocker ID:" + locker + "," +
-                                    "\nBooker: " + booker_email+ "," +
-                                    "\nBooking ID: " + bookingID;
+                                    "\nBooker: " + booker_email
+                                    ;
 
                             try {
                                 Thread Transaction = new Thread(new Runnable() {
