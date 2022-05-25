@@ -119,6 +119,8 @@ public class Deliver extends ListFragment {
             Log.i("state", "not supported");
         }
         else if (!bluetoothAdapter.isEnabled()) {
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivity(enableBtIntent);
             setEmptyText("<bluetooth is disabled>");
             Log.i("state", "disabled");
         }

@@ -1,5 +1,6 @@
 package com.example.locky;
 
+import android.Manifest;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -14,8 +15,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -49,20 +53,6 @@ import java.util.Date;
 import java.security.Security;
 import java.util.concurrent.locks.Lock;
 
-//Algorand-SDK
-//import com.algorand.algosdk.*;
-import com.algorand.algosdk.account.Account;
-import com.algorand.algosdk.crypto.Address;
-import com.algorand.algosdk.crypto.Digest;
-import com.algorand.algosdk.crypto.LogicsigSignature;
-import com.algorand.algosdk.transaction.SignedTransaction;
-import com.algorand.algosdk.transaction.Transaction;
-import com.algorand.algosdk.transaction.TxGroup;
-import com.algorand.algosdk.util.Encoder;
-import com.algorand.algosdk.v2.client.common.AlgodClient;
-import com.algorand.algosdk.v2.client.common.Response;
-import com.algorand.algosdk.v2.client.model.CompileResponse;
-import com.algorand.algosdk.v2.client.model.PendingTransactionResponse;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.json.JSONObject;
@@ -79,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        ActivityCompat.requestPermissions(MainActivity.this, new String[] { Manifest.permission.BLUETOOTH_CONNECT }, 100);
         super.onStart();
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
@@ -255,5 +246,17 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-
+    private ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    // Permission is granted. Continue the action or workflow in your
+                    // app.
+                } else {
+                    // Explain to the user that the feature is unavailable because the
+                    // features requires a permission that the user has denied. At the
+                    // same time, respect the user's decision. Don't link to system
+                    // settings in an effort to convince the user to change their
+                    // decision.
+                }
+            });
 }
